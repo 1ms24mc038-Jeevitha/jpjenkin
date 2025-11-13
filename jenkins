@@ -12,13 +12,13 @@ pipeline{
   stage('java compile'){
    steps{
       echo'compiling java file'
-      sh'javac helll.java' 
+      sh'javac hellll.java' 
     }
 }
  stage(java execution){
    steps{
        echo'executing java program'
-       sh 'java helll.java'
+       sh 'java hellll.java'
       }
   }
   stage('execute python'){
