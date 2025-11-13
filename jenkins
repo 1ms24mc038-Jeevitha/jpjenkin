@@ -1,0 +1,40 @@
+pipeline{
+   agent any
+   tools{
+     jdk 'jdk21'
+   }
+  stages{
+      stage('checkout'){
+        steps{
+      git branch:"main",url:" "
+      }
+  }
+  stage('java compile'){
+   steps{
+      echo'compiling java file'
+      sh'javac helll.java' 
+    }
+}
+ stage(java execution){
+   steps{
+       echo'executing java program'
+       sh 'java helll.java'
+      }
+  }
+  stage('execute python'){
+     steps{
+         echo'executing python file'
+         sh'python3 hello.py'
+       }
+   }
+}
+post{
+   success{
+       echo'execution successful'
+   }
+   failure{
+        echo'failed to execute'
+   }
+}
+}
+
